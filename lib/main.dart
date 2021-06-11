@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 //import 'package:flutter_application_2/home_screen.dart';
-import 'package:flutter_dialpad/flutter_dialpad.dart';
+//import 'package:flutter_dialpad/flutter_dialpad.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,19 +34,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController _numberCtrl = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _numberCtrl.text = "085921191121";
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body: SafeArea(
-            child: DialPad(
-                enableDtmf: true,
-                outputMask: "(000) 000-0000",
-                backspaceButtonIconColor: Colors.red,
-                makeCall: (number) {
-                  print(number);
-                })),
+        appBar: new AppBar(
+          title: const Text('Plugin example app'),
+        ),
+        body: new Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _numberCtrl,
+              decoration: InputDecoration(labelText: "Phone Number"),
+              keyboardType: TextInputType.number,
+            ),
+          ),
+          ElevatedButton(
+            child: Text("Test Call"),
+            onPressed: () async {
+              FlutterPhoneDirectCaller.callNumber(_numberCtrl.text);
+            },
+          )
+        ]),
       ),
     );
   }
