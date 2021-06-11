@@ -62,6 +62,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_dialpad:
+    dependency: "direct main"
+    description:
+      name: flutter_dialpad
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  flutter_dtmf:
+    dependency: transitive
+    description:
+      name: flutter_dtmf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  flutter_masked_text2:
+    dependency: transitive
+    description:
+      name: flutter_masked_text2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
