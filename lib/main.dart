@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: new AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Repeat Dialer'),
         ),
         body: new Column(children: <Widget>[
           Padding(
